@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ERS_App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    
+</head>
+<body style="background-color:#a8e6cf">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#" style="color:yellow;background-color:gray;padding-right: 3rem;padding-left: 1rem;border-radius: 3rem">ERS</a>
+        </nav>
+    <h2 >
+        <center>
+        <br><p id="message" style="color:rgb(255, 0, 0)"></p>
+        </center>
+    </h2>
+    <h4 style="margin-left: 30rem; margin-right: 30rem; background-color: rgb(91, 222, 255);border-radius: 0.5rem">
+        <div >
+            <form class="px-4 py-3" method="post" action="newUser">
+                <div class="form-group">
+                    <label for="ers_username">Username</label>
+                    <input type="text" class="form-control" id="ers_username" placeholder="Username">
+                    <label for="ers_password">Password</label>
+                    <input type="password" class="form-control" id="ers_password" placeholder="Password">
+                </div>
+                <br><button type="submit" class="btn btn-primary" id="newUser_btn">Create</button>
+            </form>
+        </div>
+    </h4>
+    <!--script src="main.js"></script-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
