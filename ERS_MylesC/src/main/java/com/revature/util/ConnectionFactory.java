@@ -21,8 +21,9 @@ public class ConnectionFactory {
 		Properties prop = new Properties();
 		try {
 			prop.load(new FileReader("C:\\Users\\Myles\\Documents\\"
-					+ "application.properties"));
-			Class.forName(prop.getProperty("driver"));
+					+ "connection.properties"));
+			//Class.forName(prop.getProperty("driver"));
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection(prop.getProperty("url"), 
 												prop.getProperty("usr"),
 												prop.getProperty("pwd"));

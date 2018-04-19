@@ -18,22 +18,22 @@
         </center>
     </h2>
     <h4 style="margin-left: 30rem; margin-right: 30rem; background-color: rgb(91, 222, 255);border-radius: 0.5rem">
-        <div >
-            <form class="px-4 py-3" method="post" action="newUser">
+        <div>
+            <form class="px-4 py-3" method="post" action="../newUser">
                 <div class="form-group">
                     <label for="ers_username">Username</label>
-                    <input type="text" class="form-control" id="ers_username" placeholder="Username">
+                    <input type="text" class="form-control" name="ers_username" placeholder="Username">
                     <label for="ers_password">Password</label>
-                    <input type="password" class="form-control" id="ers_password" placeholder="Password">
-                    <input type = "text" placeholder = "First Name">
-                <input type = "text" placeholder = "Last Name" class="form-control" id="ers_password">
-                <br><input type = "text" placeholder="email" class="form-control" id="ers_password">
-                <input type = "text" placeholder="confirm email" class="form-control" id="ers_password">
-                <br><input type = "password" placeholder= "password" class="form-control" id="ers_password">
-                <input type = "password" placeholder= "confirm password" class="form-control" id="ers_password">
-                <br><input type = "submit" value = "Don't push this button!">
+                    <input type="password" class="form-control" name="ers_password" placeholder="Password">
+                    <label for="ers_firstname">First Name</label>
+                    <input type = "text" placeholder = "First Name" class="form-control" name="ers_firstname">
+                    <label for="ers_lastname">Last Name</label>
+                    <input type = "text" placeholder = "Last Name" class="form-control" name="ers_lastname">
+                    <label for="ers_email">Email</label>
+                	<br><input type = "text" placeholder="email" class="form-control" name="ers_email">
+                	<br><button type="submit" class="btn btn-primary" id="newUser_btn">Create</button>
                 </div>
-                <br><button type="submit" class="btn btn-primary" id="newUser_btn">Create</button>
+                
             </form>
         </div>
     </h4>
