@@ -41,22 +41,40 @@ public class NewUserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//session
-		PrintWriter pw = response.getWriter();
+		//PrintWriter pw = response.getWriter();
 		ErsUser user = new ErsUser();
 		ErsUserDAO userdao = new ErsUserDAOImpl();
+		String message = new String();
+		request.setAttribute("message", "hello");
+		String destination = "login";
 		//HttpSession session = request.getSession();
 		user.setFirstname(request.getParameter("ers_firstname"));
 		user.setLastname(request.getParameter("ers_lastname"));
 		user.setEmail(request.getParameter("ers_email"));
 		user.setUsername(request.getParameter("ers_username"));
 		user.setPassword(request.getParameter("ers_password"));
-		System.out.println(request.getParameter("ers_firstname"));
-		System.out.println(user);
-		if(userdao.checkUser(user)) {
-			pw.println("unique");
+		user.setRole_id(Integer.parseInt(request.getParameter("ers_role_id")));
+		//request.getSession().removeAttribute(message);
+		//System.out.println("here");
+		//request.getRequestDispatcher("/ERS_MylesC/newUser").forward(request, response);;
+		if(!user.getEmail().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
+			message = "Invalid Email Format";
+			System.out.println("wrong email");
+			destination = "newUser";
+		}else if(!user.getPassword().matches(request.getParameter("confirm_password"))) {
+			System.out.println("needs match pass");
+			message = "Passwords Do Not Match";
+			destination = "newUser";
+		}else if(!userdao.checkUser(user)) {
+			message = "Username or Email Already Exists";
+			System.out.println("exists");
+			destination = "newUser";
 		} else {
-			pw.println("not unique");
+			System.out.println("mynewuser");
+			message = "Created New User";
+			destination = "login";
 		}
+		response.sendRedirect(destination);
 	}
 
 }

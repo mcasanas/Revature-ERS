@@ -14,26 +14,33 @@
         </nav>
     <h2 >
         <center>
-        <br><p id="message" style="color:rgb(255, 0, 0)"></p>
+        <br><div name="message" id="message" style="color:rgb(255, 0, 0)"></div>
         </center>
     </h2>
     <h4 style="margin-left: 30rem; margin-right: 30rem; background-color: rgb(91, 222, 255);border-radius: 0.5rem">
         <div>
-            <form class="px-4 py-3" method="post" action="../newUser">
+            <form class="px-4 py-3" method="post" action="/ERS_MylesC/newUser">
                 <div class="form-group">
                     <label for="ers_username">Username</label>
                     <input type="text" class="form-control" name="ers_username" placeholder="Username">
                     <label for="ers_password">Password</label>
                     <input type="password" class="form-control" name="ers_password" placeholder="Password">
+                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password">
                     <label for="ers_firstname">First Name</label>
                     <input type = "text" placeholder = "First Name" class="form-control" name="ers_firstname">
                     <label for="ers_lastname">Last Name</label>
                     <input type = "text" placeholder = "Last Name" class="form-control" name="ers_lastname">
                     <label for="ers_email">Email</label>
                 	<br><input type = "text" placeholder="email" class="form-control" name="ers_email">
-                	<br><button type="submit" class="btn btn-primary" id="newUser_btn">Create</button>
+                	<label for="ers_role_id">Role</label>
+                	<br><select name="ers_role_id">
+    						<option value="2">Junior</option>
+    						<option value="3">Middle</option>
+    						<option value="4">Senior</option>
+    						<option value="5">Lead</option>
+  					</select>
+                	<br><br><button type="submit" class="btn btn-primary" id="newUser_btn">Create</button>
                 </div>
-                
             </form>
         </div>
     </h4>
