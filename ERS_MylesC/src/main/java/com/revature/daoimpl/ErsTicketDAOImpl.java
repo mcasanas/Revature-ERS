@@ -119,9 +119,9 @@ public class ErsTicketDAOImpl implements ErsTicketDAO {
 	public boolean resolveTicket(ErsTicket ticket) {
 		try(Connection conn = ConnectionFactory.getInstance().getConnection()){
 			conn.setAutoCommit(false);
-			String sql = "UPDATE ERS_REIMBURSEMENT SET REIM_TYPE_ID = ?, REIM_RESOLVED = CURRENT_TIMESTAMP WHERE REIM_ID = ?";
+			String sql = "UPDATE ERS_REIMBURSEMENT SET REIM_STATUS_ID = ?, REIM_RESOLVED = CURRENT_TIMESTAMP WHERE REIM_ID = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1, ticket.getReim_type_id());
+			ps.setInt(1, ticket.getReim_status_id());
 			ps.setInt(2, ticket.getReim_id());
 			int rows = ps.executeUpdate();
 			if(rows != 1) {

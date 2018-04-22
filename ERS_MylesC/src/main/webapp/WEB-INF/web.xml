@@ -21,4 +21,44 @@
     <servlet-name>NewUserServlet</servlet-name>
     <url-pattern>/newUser</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SessionServlet</display-name>
+    <servlet-name>SessionServlet</servlet-name>
+    <servlet-class>com.revature.servlet.SessionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SessionServlet</servlet-name>
+    <url-pattern>/session</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TableServlet</display-name>
+    <servlet-name>TableServlet</servlet-name>
+    <servlet-class>com.revature.servlet.TableServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TableServlet</servlet-name>
+    <url-pattern>/TableServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InfoServlet</display-name>
+    <servlet-name>InfoServlet</servlet-name>
+    <servlet-class>com.revature.servlet.InfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InfoServlet</servlet-name>
+    <url-pattern>/InfoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NewTicketServlet</display-name>
+    <servlet-name>NewTicketServlet</servlet-name>
+    <servlet-class>com.revature.servlet.NewTicketServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewTicketServlet</servlet-name>
+    <url-pattern>/NewTicketServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
