@@ -42,6 +42,7 @@ public class UserInfoServlet extends HttpServlet {
 			user.setUser_id((Integer)session.getAttribute("userId"));
 			user.setRole_id((Integer)session.getAttribute("roleId"));
 			user.setUser_role((String)session.getAttribute("role"));
+			//System.out.println(user);
 			String out = om.writeValueAsString(user);
 			response.getWriter().write(out);
 			//response.getWriter().write("{\"username\":\""+session.getAttribute("username")+"\"}");

@@ -67,10 +67,11 @@ public class NewUserServlet extends HttpServlet {
 			destination = "newUser";
 		}else if(!userdao.checkUser(user)) {
 			message = "Username or Email Already Exists";
-			System.out.println("exists");
+			//System.out.println("exists");
 			destination = "newUser";
 		} else {
-			System.out.println("mynewuser");
+			//System.out.println("mynewuser");
+			userdao.addAccount(user);
 			message = "Created New User";
 			destination = "login";
 		}

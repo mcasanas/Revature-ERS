@@ -59,7 +59,7 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("message", "");
 			session.setAttribute("username", request.getParameter("ers_username"));
 			user = dao.getUserbyUsername(request.getParameter("ers_username"));
-			System.out.println(user);
+			//System.out.println(user);
 			session.setAttribute("userId", user.getUser_id());
 			session.setAttribute("roleId", user.getRole_id());
 			session.setAttribute("role", user.getUser_role());

@@ -28,17 +28,19 @@ public class TableServlet extends HttpServlet {
 		//Supply information on table
 		HttpSession session = request.getSession(false);
 		ErsTicketDAO ticketDao =  new ErsTicketDAOImpl();
-		ArrayList<ErsTicket> ticketList = new ArrayList<ErsTicket>();
+		//ArrayList<ErsTicket> ticketList = new ArrayList<ErsTicket>();
 		ObjectMapper om = new ObjectMapper();
 		String tableString = "";
 		PrintWriter pw = response.getWriter();
-		if(session != null && ((Integer) session.getAttribute("user_roleId")) == 1) { //admin
+		if(session != null && ((Integer) session.getAttribute("roleId")) == 1) { //admin
+			ArrayList<ErsTicket> ticketList = new ArrayList<ErsTicket>();
 			ticketList = ticketDao.getTicketsForAdmin();
 			tableString = om.writeValueAsString(ticketList);
 			pw.write(tableString);
-		} else if(session != null && ((Integer) session.getAttribute("user_roleId")) >1 && (Integer)session.getAttribute("user_roleId") <6) {
+		} else if(session != null && ((Integer) session.getAttribute("roleId")) >1 && (Integer)session.getAttribute("roleId") <6) {
 			int userId = (Integer) session.getAttribute("userId");
 			ErsTicket temp = new ErsTicket();
+			ArrayList<ErsTicket> ticketList = new ArrayList<ErsTicket>();
 			temp.setReim_author_id(userId);
 			ticketList = ticketDao.getTicketsByUserID(temp);
 			tableString = om.writeValueAsString(ticketList);

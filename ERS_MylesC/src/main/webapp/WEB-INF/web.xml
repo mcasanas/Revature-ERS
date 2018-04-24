@@ -39,7 +39,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>TableServlet</servlet-name>
-    <url-pattern>/TableServlet</url-pattern>
+    <url-pattern>/table</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -59,7 +59,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>NewTicketServlet</servlet-name>
-    <url-pattern>/NewTicketServlet</url-pattern>
+    <url-pattern>/newTicket</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -70,5 +70,15 @@
   <servlet-mapping>
     <servlet-name>UserInfoServlet</servlet-name>
     <url-pattern>/userInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.revature.servlet.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
   </servlet-mapping>
 </web-app>

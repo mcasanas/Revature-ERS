@@ -20,8 +20,19 @@ function displayMessage(xhr){
 	let user = JSON.parse(xhr.responseText);
 	if(user !== null) {
 		console.log(user.username);
-		
-		document.getElementById("myUser").innerText = "ID: "+user.user_id +"\nUser: "+user.username +"\nRole: "+user.user_role;
-		
+		document.getElementById("myUser").innerText = "ID: "+user.user_id + "User: "+user.username +"  Role: "+user.user_role;
+//		document.getElementById("myUser").innerHtml = "<span id = \"authorId\">ID: "+user.user_id +
+//			"</span>  User: "+user.username +"  Role: "+user.user_role;
+//		let temp = document.createElement('span').setAttribute("id","authorId");
+//		let text = document.createTextNode("ID: "+user.user_id+"\n");
+//		temp.appendChild(temp);
+//		temp = document.createElement('span').setAttribute("id","username");
+//		let text = document.createTextNode("User: "+user.username +"\n");
+//		temp.appendChild(temp);
+//		document.getElementById("myUser").appendChild(temp);
+//		temp = document.createElement('span').setAttribute("id","role");
+//		let text = document.createTextNode("Role: "+user.user_role);
+//		temp.appendChild(temp);
+//		document.getElementById("myUser").appendChild(temp);
 	} 
 }

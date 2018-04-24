@@ -36,12 +36,12 @@ public class NewTicketServlet extends HttpServlet {
 		ErsTicketDAO ticketDao = new ErsTicketDAOImpl();
 		ticket.setReim_amount(Double.parseDouble(request.getParameter("ers_amount")));
 		ticket.setReim_descript(request.getParameter("ers_descript"));
-		ticket.setReim_author_id((Integer) session.getAttribute("authorId"));
+		ticket.setReim_author_id((Integer) session.getAttribute("userId"));
 		ticket.setReim_type_id(Integer.parseInt(request.getParameter("ers_type_id")));
 		ticketDao.addTicketFromUser(ticket);
 		session.setAttribute("message", null);
 		session.setAttribute("message", "Ticket has been added");
-		response.sendRedirect("ERS_MylesC/Views/ERS_Options.html");
+		response.sendRedirect("/ERS_MylesC/Views/ERS_Options.html");
 	}
 
 }
