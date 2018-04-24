@@ -14,41 +14,27 @@
         </nav>
     <h2 >
         <center>
-        <br><div name="message" id="message" style="color:rgb(255, 0, 0)"></div>
+        <br><p id="message" style="color:rgb(255, 0, 0)"></p>
         </center>
     </h2>
-    <h3>
+    <h4>
     	<p id="myUser"></p>
-    </h3>
+    </h4>
     <h4 style="margin-left: 30rem; margin-right: 30rem; background-color: rgb(91, 222, 255);border-radius: 0.5rem">
         <div>
-            <form class="px-4 py-3" method="post" action="/ERS_MylesC/newUser">
-                <div class="form-group">
-                    <label for="ers_username">Username</label>
-                    <input type="text" class="form-control" name="ers_username" placeholder="Username">
-                    <label for="ers_password">Password</label>
-                    <input type="password" class="form-control" name="ers_password" placeholder="Password">
-                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password">
-                    <label for="ers_firstname">First Name</label>
-                    <input type = "text" placeholder = "First Name" class="form-control" name="ers_firstname">
-                    <label for="ers_lastname">Last Name</label>
-                    <input type = "text" placeholder = "Last Name" class="form-control" name="ers_lastname">
-                    <label for="ers_email">Email</label>
-                	<br><input type = "text" placeholder="email" class="form-control" name="ers_email">
-                	<label for="ers_role_id">Role</label>
-                	<br><select name="ers_role_id">
-    						<option value="2">Junior</option>
-    						<option value="3">Middle</option>
-    						<option value="4">Senior</option>
-    						<option value="5">Lead</option>
-  					</select>
-                	<br><br><button type="submit" class="btn btn-primary" id="newUser_btn">Create</button>
-                </div>
+            <form class="px-4 py-3" method="post" action="/ERS_MylesC/Views/ERS_Table.html">
+                <br><button type="submit" class="btn btn-primary" id="tables_btn">View Tables</button>
+            </form>
+       	</div>
+       	<div>
+            <form class="px-4 py-3" method="post" action="/ERS_MylesC/Views/ERS_NewTicket.html">
+                <br><button type="submit" class="btn btn-primary" id="add_btn">add</button>
             </form>
         </div>
+        <br>
     </h4>
     <!--script src="main.js"></script-->
-    
+    <script src ="/ERS_MylesC/Scripts/userInfo.js">
     <script src ="/ERS_MylesC/Scripts/messages.js">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

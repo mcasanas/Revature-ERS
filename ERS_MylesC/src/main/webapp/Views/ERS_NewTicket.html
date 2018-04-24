@@ -22,34 +22,27 @@
     </h3>
     <h4 style="margin-left: 30rem; margin-right: 30rem; background-color: rgb(91, 222, 255);border-radius: 0.5rem">
         <div>
-            <form class="px-4 py-3" method="post" action="/ERS_MylesC/newUser">
+            <form class="px-4 py-3" method="post" action="/ERS_MylesC/newTicket">
                 <div class="form-group">
-                    <label for="ers_username">Username</label>
-                    <input type="text" class="form-control" name="ers_username" placeholder="Username">
-                    <label for="ers_password">Password</label>
-                    <input type="password" class="form-control" name="ers_password" placeholder="Password">
-                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password">
-                    <label for="ers_firstname">First Name</label>
-                    <input type = "text" placeholder = "First Name" class="form-control" name="ers_firstname">
-                    <label for="ers_lastname">Last Name</label>
-                    <input type = "text" placeholder = "Last Name" class="form-control" name="ers_lastname">
-                    <label for="ers_email">Email</label>
-                	<br><input type = "text" placeholder="email" class="form-control" name="ers_email">
-                	<label for="ers_role_id">Role</label>
-                	<br><select name="ers_role_id">
-    						<option value="2">Junior</option>
-    						<option value="3">Middle</option>
-    						<option value="4">Senior</option>
-    						<option value="5">Lead</option>
+                    <label for="ers_amount">Reimbursement Amount</label>
+                    <input type="text" class="form-control" name="ers_amount" placeholder="0.00">
+                    <label for="ers_descript">Description</label>
+                    <input type="text" class="form-control" name="ers_descript" placeholder="Description">
+                	<label for="ers_type_id">Type</label>
+                	<br><select name="ers_type_id">
+    						<option value="1">Lodging</option>
+    						<option value="2">Travel</option>
+    						<option value="3">Food</option>
+    						<option value="4">Other</option>
   					</select>
-                	<br><br><button type="submit" class="btn btn-primary" id="newUser_btn">Create</button>
+                	<br><br><button type="submit" class="btn btn-primary" id="newTicket_btn">Add Ticket</button>
                 </div>
             </form>
         </div>
     </h4>
     <!--script src="main.js"></script-->
-    
-    <script src ="/ERS_MylesC/Scripts/messages.js">
+    <script src ="/ERS_MylesC/Scripts/message.js">
+    <script src ="/ERS_MylesC/Scripts/userInfo.js">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

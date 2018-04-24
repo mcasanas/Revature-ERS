@@ -61,4 +61,14 @@
     <servlet-name>NewTicketServlet</servlet-name>
     <url-pattern>/NewTicketServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserInfoServlet</display-name>
+    <servlet-name>UserInfoServlet</servlet-name>
+    <servlet-class>com.revature.servlet.UserInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserInfoServlet</servlet-name>
+    <url-pattern>/userInfo</url-pattern>
+  </servlet-mapping>
 </web-app>

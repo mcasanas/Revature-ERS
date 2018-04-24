@@ -7,16 +7,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.pojo.ErsUser;
+
 /**
- * Servlet implementation class SessionServlet
+ * Servlet implementation class UserInfoServlet
  */
-public class SessionServlet extends HttpServlet {
+public class UserInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SessionServlet() {
+    public UserInfoServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,17 +30,26 @@ public class SessionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(false);
-		System.out.println("session");
-		if(session != null)
+		//System.out.println(session.getAttribute("userId"));
+		if(session.getAttribute("userId") != null || session.getAttribute("userId") != "")
 		{
-			System.out.println("Message sent");
 			response.setContentType("application/json");
-			response.getWriter().write("{\"message\":\""+session.getAttribute("message")+"\"}");
+			//System.out.println("name");
+			//System.out.println(session.getAttribute("username"));
+			ObjectMapper om = new ObjectMapper();
+			ErsUser user = new ErsUser();
+			user.setUsername((String)session.getAttribute("username"));
+			user.setUser_id((Integer)session.getAttribute("userId"));
+			user.setRole_id((Integer)session.getAttribute("roleId"));
+			user.setUser_role((String)session.getAttribute("role"));
+			String out = om.writeValueAsString(user);
+			response.getWriter().write(out);
+			//response.getWriter().write("{\"username\":\""+session.getAttribute("username")+"\"}");
+			//response.getWriter().write("{\"roleId\":\""+session.getAttribute("roleId")+"\"}");
 		} else {
 			response.setContentType("application/json");
 			response.getWriter().write("{\"message\":null}");
 		}
-		//session.invalidate();
 	}
 
 	/**
