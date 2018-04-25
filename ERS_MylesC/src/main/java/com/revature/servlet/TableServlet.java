@@ -1,8 +1,10 @@
 package com.revature.servlet;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.util.ISO8601Utils;
 import com.revature.dao.ErsTicketDAO;
 import com.revature.daoimpl.ErsTicketDAOImpl;
 import com.revature.pojo.ErsTicket;
@@ -53,9 +56,14 @@ public class TableServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Get info on Ticket
 		HttpSession session = request.getSession(false);
-		String ticketId = request.getParameter("ticketId");
-		session.setAttribute("ticketId", ticketId);
-		response.sendRedirect("info");
+		InputStream myIS = request.getInputStream();
+		String textInput = null;
+	    try (Scanner scanner = new Scanner(myIS, StandardCharsets.UTF_8.name())) {
+	        textInput = scanner.useDelimiter("\\A").next();
+	    }
+		//System.out.println(textInput);
+		session.setAttribute("ticketId", textInput);
+		//System.out.println(session.getAttribute("ticketId"));
 	}
 
 }

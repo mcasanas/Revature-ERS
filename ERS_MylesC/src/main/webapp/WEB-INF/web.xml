@@ -49,7 +49,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>InfoServlet</servlet-name>
-    <url-pattern>/InfoServlet</url-pattern>
+    <url-pattern>/ticketInfo</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

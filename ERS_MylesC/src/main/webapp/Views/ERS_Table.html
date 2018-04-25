@@ -12,34 +12,47 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#" style="color:yellow;background-color:gray;padding-right: 3rem;padding-left: 1rem;border-radius: 3rem">ERS</a>
         </nav>
+        <div style="float:left">
+        <form class="px-4 py-3" action="/ERS_MylesC/Views/ERS_Options.html">
+                <button type="submit" class="btn btn-primary" >Back</button>
+    	</form>
+    	</div>
+    	<div style="float:right">    
+    	<form class="px-4 py-3" method="post" action="/ERS_MylesC/logout">
+                <button type="submit" class="btn btn-primary" id="add_btn">Logout</button>
+    	</form>
+    	</div>
     <h2 >
         <center>
         <br><p id="message" style="color:rgb(255, 0, 0)"></p>
         </center>
     </h2>
-    <h4>
+    <center>
     	<p id="myUser"></p>
-    </h4>
-
-        <div>     
-       		<table id="ticketTable" style="background-color:white; margin-left: 10rem; margin-right: 10rem; text-align:left; ">
+    </center>
+    	<div style="float:right; padding-right:5px">
+		<select name="ers_role_id">
+							<option value="1"></option>
+    						<option value="Pending">Pending</option>
+    						<option value="Denied">Denied</option>
+    						<option value="Approved">Approved</option>
+  		</select>
+        </div>     
+       		<br><br><table id="ticketTable" style="background-color:white; margin-left: 10rem; margin-right: 10rem; text-align:left; ">
   				<tr class="header" style="border-bottom: 1px solid black;">
+  					<th style="width:10%;">Info</th>
     				<th style="width:10%;">ID</th>
     				<th style="width:20%;">Amount</th>
     				<th style="width:20%;">Post Time</th>
     				<th style="width:20%;">Resolved Time</th>
     				<th style="width:15%;">Type</th>
     				<th style="width:15%;">Status</th>
-    				<th style="width:10%;">Info</th>
   				</tr>
   				<!-- Add Rows to Table -->
 			</table>
         </div>
-        
-    <form class="px-4 py-3" method="post" action="/ERS_MylesC/logout">
-                <br><button type="submit" class="btn btn-primary" id="add_btn">Logout</button>
-    </form>
     
+    <div hidden id= "selectId" name="selectId"></div>
     <!--script src="main.js"></script-->
     <script src ="/ERS_MylesC/Scripts/userInfo.js"></script>
     <script src ="/ERS_MylesC/Scripts/messages.js"></script>

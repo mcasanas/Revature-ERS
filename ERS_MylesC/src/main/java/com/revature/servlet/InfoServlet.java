@@ -1,8 +1,10 @@
 package com.revature.servlet;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -31,13 +33,15 @@ public class InfoServlet extends HttpServlet {
 		ObjectMapper om = new ObjectMapper();
 		String ticketString = "";
 		PrintWriter pw = response.getWriter();
-		if(session != null && ((Integer) session.getAttribute("ticketId")) == 1) { 
-			ticket.setReim_id((Integer) session.getAttribute("ticketId"));
+		if(session.getAttribute("ticketId") != null) { 
+			int i = Integer.parseInt(session.getAttribute("ticketId").toString());
+			ticket.setReim_id(i);
 			ticket = ticketDao.getTicket(ticket);
+	
 			ticketString = om.writeValueAsString(ticket);
 			pw.write(ticketString);
-		} else{
-			response.sendRedirect("login");
+		} else {
+			
 		}
 	}
 
@@ -46,11 +50,12 @@ public class InfoServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		ErsTicketDAO ticketDao =  new ErsTicketDAOImpl();
 		ErsTicket ticket = new ErsTicket();
-		if(session != null && ((Integer) session.getAttribute("ticketId")) == 1) { 
-			ticket.setReim_id((Integer) session.getAttribute("ticketId"));
-			ticket.setReim_status_id((Integer) session.getAttribute("statusId"));
+		int statusId = Integer.parseInt(request.getParameter("statusId"));
+		if(session != null) { 
+			ticket.setReim_id(Integer.parseInt(session.getAttribute("ticketId").toString()));
+			ticket.setReim_status_id(statusId);
 			ticketDao.resolveTicket(ticket);
-			response.sendRedirect("table");
+			response.sendRedirect("/ERS_MylesC/Views/ERS_Table.html");
 		} else{
 			response.sendRedirect("login");
 		}

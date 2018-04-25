@@ -34,14 +34,21 @@ public class NewTicketServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		ErsTicket ticket = new ErsTicket();
 		ErsTicketDAO ticketDao = new ErsTicketDAOImpl();
-		ticket.setReim_amount(Double.parseDouble(request.getParameter("ers_amount")));
-		ticket.setReim_descript(request.getParameter("ers_descript"));
-		ticket.setReim_author_id((Integer) session.getAttribute("userId"));
-		ticket.setReim_type_id(Integer.parseInt(request.getParameter("ers_type_id")));
-		ticketDao.addTicketFromUser(ticket);
-		session.setAttribute("message", null);
-		session.setAttribute("message", "Ticket has been added");
-		response.sendRedirect("/ERS_MylesC/Views/ERS_Options.html");
+		String money = request.getParameter("ers_amount");
+		if(money.matches("^[0-9]+(\\.([0-9]{0,2})){0,1}$")) {
+			ticket.setReim_amount(Double.parseDouble(request.getParameter("ers_amount")));
+			ticket.setReim_descript(request.getParameter("ers_descript"));
+			ticket.setReim_author_id((Integer) session.getAttribute("userId"));
+			ticket.setReim_type_id(Integer.parseInt(request.getParameter("ers_type_id")));
+			ticketDao.addTicketFromUser(ticket);
+			session.setAttribute("message", null);
+			session.setAttribute("message", "Ticket has been added");
+			response.sendRedirect("/ERS_MylesC/Views/ERS_Options.html");
+		}else {
+			session.setAttribute("message", null);
+			session.setAttribute("message", "Incorrect money format");
+			response.sendRedirect("/ERS_MylesC/Views/ERS_NewTicket.html");
+		}
 	}
 
 }

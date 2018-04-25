@@ -1,5 +1,5 @@
 
-console.log("starting");
+//console.log("starting");
 sendAjaxGet("http://localhost:8080/ERS_MylesC/session",displayMessage);
 //document.getElementById('login_btn').addEventListener('click', sendAjaxGet("http://localhost:8080/ERS_MylesC/session",displayMessage));
 
@@ -18,12 +18,10 @@ function sendAjaxGet(url, func){
 
 function displayMessage(xhr){
 	let message = JSON.parse(xhr.responseText);
-	if(message.message !== null) {
+	if(message.message == null | message.message == undefined | message.message == "") {
+		document.getElementById("message").innerText = "";
+	} else {
 		document.getElementById("message").innerText = message.message;
 		console.log(message.message);
-	} else {
-		//display user & message
-		//document.getElementById("message").innerText = message.message;
-		//console.log(message.message);
 	}
 }

@@ -12,30 +12,36 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#" style="color:yellow;background-color:gray;padding-right: 3rem;padding-left: 1rem;border-radius: 3rem">ERS</a>
         </nav>
+        <div align="right">
+        <form class="px-4 py-3" method="post" action="/ERS_MylesC/logout" >
+               <button type="submit" class="btn btn-primary" id="add_btn">Logout</button>
+    	</form>
+    	</div>
     <h2 >
         <center>
         <br><p id="message" style="color:rgb(255, 0, 0)"></p>
         </center>
     </h2>
-    <h4>
+    <center>
     	<p id="myUser"></p>
-    </h4>
+    </center>
+    
     <h4 style="margin-left: 30rem; margin-right: 30rem; background-color: rgb(91, 222, 255);border-radius: 0.5rem">
+    	
         <div>
             <form class="px-4 py-3" method="post" action="/ERS_MylesC/Views/ERS_Table.html">
-                <br><button type="submit" class="btn btn-primary" id="tables_btn">View Tables</button>
-            </form>
+                <br><button type="submit" class="btn btn-primary" id="tables_btn">View Tickets</button>
+            </form>  
        	</div>
        	<div>
             <form class="px-4 py-3" method="post" action="/ERS_MylesC/Views/ERS_NewTicket.html">
-                <br><button type="submit" class="btn btn-primary" id="add_btn">add</button>
+                <br><button type="submit" class="btn btn-primary" id="add_btn">Add Ticket</button>
             </form>
+            
         </div>
+        
         <br>
     </h4>
-    <form class="px-4 py-3" method="post" action="/ERS_MylesC/logout">
-                <br><button type="submit" class="btn btn-primary" id="add_btn">Logout</button>
-    </form>
     
     <!--script src="main.js"></script-->
     <script src ="/ERS_MylesC/Scripts/userInfo.js"></script>

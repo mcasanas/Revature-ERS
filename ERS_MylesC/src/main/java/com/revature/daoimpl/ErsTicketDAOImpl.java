@@ -20,6 +20,7 @@ public class ErsTicketDAOImpl implements ErsTicketDAO {
 			while(rs.next()) {
 				myTicket.setReim_id(rs.getInt("reim_id"));
 				myTicket.setReim_amount(rs.getDouble("reim_amount"));
+				myTicket.setReim_descript(rs.getString("reim_descript"));
 				myTicket.setReim_submitted(rs.getString("reim_submitted"));
 				myTicket.setReim_resolved(rs.getString("reim_resolved"));
 				myTicket.setReim_receipt(rs.getObject("reim_receipt"));
@@ -38,6 +39,11 @@ public class ErsTicketDAOImpl implements ErsTicketDAO {
 			while(rs.next()) {
 				myTicket.setReim_type(rs.getString("reim_type"));
 			}
+			sql = "Select USER_FIRST_NAME, USER_LAST_NAME FROM ERS_USERS WHERE ERS_USERS_ID = "+myTicket.getReim_author_id();
+			rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				myTicket.setReim_author_name((rs.getString("user_first_name") + " " + rs.getString("user_last_name")));
+			}
 			
 		} catch(SQLException sqle) {
 			sqle.printStackTrace();
@@ -49,7 +55,7 @@ public class ErsTicketDAOImpl implements ErsTicketDAO {
 	public ArrayList<ErsTicket> getTicketsByUserID(ErsTicket ticket) {
 		ArrayList<ErsTicket> myList = new ArrayList<ErsTicket>();
 		try(Connection conn = ConnectionFactory.getInstance().getConnection()){
-			String sql = "SELECT * FROM ERS_REIMBURSEMENT";
+			String sql = "SELECT * FROM ERS_REIMBURSEMENT WHERE REIM_AUTHOR = "+ticket.getReim_author_id();
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()) {
@@ -60,18 +66,16 @@ public class ErsTicketDAOImpl implements ErsTicketDAO {
 				temp.setReim_resolved(rs.getString("REIM_RESOLVED"));
 				temp.setReim_status_id(rs.getInt("REIM_STATUS_ID"));
 				temp.setReim_type_id(rs.getInt("REIM_TYPE_ID"));
-				//temp.setReim_status(rs.getString("REIM_STATUS"));
-				//temp.setReim_type(rs.getString("REIM_TYPE"));
-				sql = "Select REIM_STATUS FROM ERS_REIMBURSEMENT_STATUS WHERE REIM_STATUS_ID = "+temp.getReim_status_id();
-				Statement stmt2 = conn.createStatement();
-				ResultSet rs2 = stmt2.executeQuery(sql);
-				while(rs2.next()) {
-					temp.setReim_status(rs2.getString("reim_status"));
+				switch(temp.getReim_type_id()) {
+				case 1: temp.setReim_type("Lodging"); break;
+				case 2: temp.setReim_type("Travel"); break;
+				case 3: temp.setReim_type("Food"); break;
+				case 4: temp.setReim_type("Other"); break;
 				}
-				sql = "Select REIM_TYPE FROM ERS_REIMBURSEMENT_TYPE WHERE REIM_TYPE_ID = "+temp.getReim_type_id();
-				ResultSet rs3 = stmt.executeQuery(sql);
-				while(rs3.next()) {
-					temp.setReim_type(rs3.getString("reim_type"));
+				switch(temp.getReim_status_id()) {
+				case 1: temp.setReim_status("Pending"); break;
+				case 2: temp.setReim_status("Denied"); break;
+				case 3: temp.setReim_status("Approved"); break;
 				}
 				myList.add(temp);
 			}

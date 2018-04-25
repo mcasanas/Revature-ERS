@@ -31,11 +31,12 @@ public class SessionServlet extends HttpServlet {
 		{
 			response.setContentType("application/json");
 			response.getWriter().write("{\"message\":\""+session.getAttribute("message")+"\"}");
+			session.setAttribute("message", "");
 		} else {
 			response.setContentType("application/json");
 			response.getWriter().write("{\"message\":null}");
 		}
-		session.setAttribute("message", "");
+		
 	}
 
 	/**
