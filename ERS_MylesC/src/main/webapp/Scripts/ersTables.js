@@ -2,6 +2,35 @@ window.onload = function(){
 	sendAjaxGet("http://localhost:8080/ERS_MylesC/table",displayMessage);
 }
 
+document.getElementById('ers_role_select').addEventListener("change" , statusFilter);
+
+
+function statusFilter(){
+	let table = document.getElementById("ticketTable");
+	let filter = document.getElementById('ers_role_select').value;
+	let rows = table.getElementsByTagName("tr");
+	let data;
+	//console.log(rows.length);
+	for(var i= 1; i<rows.length; i++){
+		data = rows[i].getElementsByTagName("td")[6];
+		if(filter == 1){
+			rows[i].style.display = "";
+			continue;
+		}
+		if(data){
+			rows[i].style.display = "";
+			if(data.innerText == filter){
+				rows[i].style.display = "";
+			} else {
+				rows[i].style.display = "none";
+			}	
+		} else {
+			rows[i].style.display = "";
+		}
+	}	
+}
+
+
 function sendAjaxGet(url, func){
 	//event.stopPropagation();
 	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");
@@ -30,7 +59,7 @@ function displayMessage(xhr){
 		nextRow.setAttribute("style","border: 1px solid black;");
 		nextRow.innerHTML = `<td id="${myList[i].reim_id}" style="background-color:grey; border:1px solid yellow" onclick="getInfo(${myList[i].reim_id})"> Info </td>
 		<td> ${id} </td><td> ${amt} 
-		</td> <td> ${st} </td> <td> ${rs} </td> <td> ${tType} </td>
+		</td> <td>${st}</td> <td>${rs}</td> <td>${tType}</td>
 		 ${trTag} ${tStatus} </td>`;
 		document.getElementById("ticketTable").appendChild(nextRow);
 	}

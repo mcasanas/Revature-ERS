@@ -43,19 +43,28 @@ function displayMessage(xhr){
 //		document.getElementById("statusB").style.display = "";
 //		document.getElementById("statusC").style.display = "";
 //	}
+	displayStatusTool();
 }
-displayStatusTool();
+
 function displayStatusTool(){
 	//console.log(document.getElementById("role").innerText);
-	console.log(localStorage.role);
-	if((status !== "Pending") | (localStorage.role !== "Manager")){
-		
+	//console.log(localStorage.role);
+	//console.log(status);
+	if((localStorage.role == "Manager") & (status=="Pending")){
+		document.getElementById("statusA").style.display = "";
+		document.getElementById("statusB").style.display = "";
+		document.getElementById("statusC").style.display = "";
+	} else if ((localStorage.role == "Manager") & (status!="Pending")){ // reduntant lines
+		document.getElementById("statusA").style.display = "none";
+		document.getElementById("statusB").style.display = "none";
+		document.getElementById("statusC").style.display = "none";
+	} else if((localStorage.role != "Manager") & (status=="Pending")){
 		document.getElementById("statusA").style.display = "none";
 		document.getElementById("statusB").style.display = "none";
 		document.getElementById("statusC").style.display = "none";
 	} else {
-		document.getElementById("statusA").style.display = "";
-		document.getElementById("statusB").style.display = "";
-		document.getElementById("statusC").style.display = "";
+		document.getElementById("statusA").style.display = "none";
+		document.getElementById("statusB").style.display = "none";
+		document.getElementById("statusC").style.display = "none";
 	}
 }
