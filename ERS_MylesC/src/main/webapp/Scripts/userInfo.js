@@ -22,4 +22,13 @@ function displayMessage(xhr){
 		document.getElementById("myUser").innerHTML = `ID: ${user.user_id}   User:  ${user.username}  <span id="role">Role:  ${user.user_role}</span>`;
 	}
 	localStorage.setItem("role", user.user_role);
+	
+	if(document.getElementById("addButton")){
+	if(localStorage.role == "Manager"){
+		document.getElementById("addButton").style.display = "none";
+	} else {
+		document.getElementById("addButton").style.display = "";
+	}
+	}
 }
+
