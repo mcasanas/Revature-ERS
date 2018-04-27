@@ -75,7 +75,7 @@ public class NewUserServlet extends HttpServlet {
 			message = "Created New User";
 			destination = "login";
 		}
-		HttpSession session = request.getSession(false);
+		HttpSession session = request.getSession();
 		session.setAttribute("message", message);
 		response.sendRedirect(destination);
 	}
