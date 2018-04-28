@@ -12,11 +12,21 @@
   
   
   <dependencies>
-		<dependency>
+		<!--dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc7</artifactId>
 			<version>12.2.0.1</version>
-		</dependency>
+		</dependency-->
+
+		<dependency>
+	
+			<groupId>org.zenframework.z8.dependencies.commons</groupId> 
+	
+			<artifactId>ojdbc6</artifactId> 
+	
+			<version>2.0</version>
+		
+</dependency>
 		
 		<dependency>
 			<groupId>javax.servlet</groupId>
